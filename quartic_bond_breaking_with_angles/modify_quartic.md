@@ -1,4 +1,21 @@
 
+# Fix for LAMMPS Error: "Bond style quartic cannot be used with 3,4-body interactions"
+
+If you encountered one of the following LAMMPS errors:
+
+```
+Bond style quartic cannot be used with 3,4-body interactions
+```
+```
+No angle, dihedral, or improper styles can be defined when using bond style quartic.
+```
+
+you are in the right place. By default, LAMMPS's `bond_style quartic` forbids the simultaneous use of angle, dihedral, or improper interactions. The modified source files in this directory remove that restriction, allowing you to use quartic bonds together with angle (and other 3/4-body) styles in your simulation.
+
+See the modification summary below for details on what was changed and why.
+
+---
+
 # Summary of Modifications to `bond_quartic`
 
 ## 1. Removed Internal Bond Breaking
